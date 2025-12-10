@@ -1,0 +1,10 @@
+stages:
+  # Stage 1: run all notebooks in code
+  run_notebooks:
+    cmd: jupyter nbconvert --to notebook --execute code/exploratory_vis.ipynb
+    deps:
+      - code/exploratory_vis.ipynb
+      - data/
+    # outs:
+      # - code/exploratory_vis.ipynb # Notebook with execution outputs
+

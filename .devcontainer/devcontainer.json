@@ -1,0 +1,31 @@
+{
+    "name": "Python 3.11 - Data Science",
+    // Build the container from our Dockerfile
+    "build": {
+        "dockerfile": "../Dockerfile"
+    },
+    // *** NEW: Add the mounts property for the Docker Volume ***
+    "mounts": [
+        {
+            // The name of the Docker Volume (persists outside the container)
+            "source": "dvc-cache-volume-${localWorkspaceFolderBasename}",
+            // The absolute path inside the container where the volume is mounted
+            "target": "/opt/dvc-cache",
+            "type": "volume"
+        }
+    ],
+    // Extensions to install inside the container
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "iterative.dvc",
+                "tamasfe.even-better-toml",
+                "charliermarsh.ruff"
+            ]
+        }
+    },
+    // Bash script to set up DVC
+    "postCreateCommand": "/bin/bash .devcontainer/setup.sh"    
+}
