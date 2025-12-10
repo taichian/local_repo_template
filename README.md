@@ -55,24 +55,6 @@ dependencies = [
 
 After editing `pyproject.toml` manually, rebuild the container in VS Code using "Dev Containers: Rebuild and Reopen in Container".
 
-### Adding VS Code extensions to the devcontainer
-
-To customize the development container's recommended extensions, edit `.devcontainer/devcontainer.json` and add or update the top-level `extensions` array. Example:
-
-```json
-{
-  "name": "repo_template",
-  "image": "mcr.microsoft.com/devcontainers/python:1-3.11",
-  "extensions": [
-    "ms-python.python",
-    "ms-toolsai.jupyter",
-    "ms-python.vscode-pylance"
-  ]
-}
-```
-
-After updating `devcontainer.json`, rebuild the container in VS Code using "Dev Containers: Rebuild and Reopen in Container".
-
 ### Updating `dvc.yaml` so notebooks run when data changes
 
 DVC tracks pipeline stages in `dvc.yaml`. To ensure a notebook (or any script) runs whenever specific data files change, declare a stage with the data files as `deps` and the generated artifacts as `outs`. For example, to run a preprocessing notebook via `papermill`:

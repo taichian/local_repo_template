@@ -3,6 +3,7 @@
 # Source helper fns
 SOURCE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 readonly SOURCE_DIR
+source "${SOURCE_DIR}/helpers/uv_setup.sh"
 source "${SOURCE_DIR}/helpers/dvc_setup.sh"
 source "${SOURCE_DIR}/helpers/pre_commit_setup.sh"
 
@@ -32,6 +33,7 @@ show_next_steps() {
 main() {
     print_header "Setup Script Starting"
 
+    setup_uv
     setup_dvc
     setup_pre_commit
     show_next_steps
