@@ -31,10 +31,8 @@ show_next_steps() {
 }
 
 main() {
-    print_header "Setup Script Starting"
-
     setup_uv
-    setup_dvc
+    #setup_dvc
     setup_pre_commit
     show_next_steps
 }
